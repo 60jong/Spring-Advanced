@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import site._60jong.advanced.kj.aop.log.LogTracer;
 import site._60jong.advanced.kj.aop.log.Trace;
+import site._60jong.advanced.kj.aop.log.TraceStatus;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -17,11 +18,11 @@ public class OrderControllerVV0 {
 
     @GetMapping("/vv0/request")
     public String request(String itemId) {
-        Trace begin = tracer.begin("OrderController.request()");
+        TraceStatus status = tracer.begin("OrderController.request()");
 
         orderService.orderItem(itemId);
 
-        tracer.end("OrderController.request()", begin);
+        tracer.end(status);
         return "ok";
     }
 }

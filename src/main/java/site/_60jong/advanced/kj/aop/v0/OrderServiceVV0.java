@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import site._60jong.advanced.kj.aop.log.LogTracer;
 import site._60jong.advanced.kj.aop.log.Trace;
+import site._60jong.advanced.kj.aop.log.TraceStatus;
 
 @RequiredArgsConstructor
 @Service
@@ -13,10 +14,9 @@ public class OrderServiceVV0 {
     private final LogTracer tracer;
 
     public void orderItem(String itemId) {
-        Trace begin = tracer.begin("OrderService.orderItem()");
+        TraceStatus status = tracer.begin("OrderService.orderItem()");
 
         orderRepository.save(itemId);
 
-        tracer.end("OrderService.orderItem()", begin);
-    }
+        tracer.end(status);    }
 }

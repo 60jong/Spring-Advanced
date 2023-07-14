@@ -13,14 +13,17 @@ public class LogTracer {
 
     private ThreadLocal<Trace> traceHolder = new ThreadLocal<>();
 
-    public Trace begin(String message) {
+    public TraceStatus begin(String message) {
         Trace trace = syncTrace();
+        TraceStatus status = new TraceStatus(trace, message);
+
         log.info("[{}] {}{}", trace.getTraceId(), addSpace(BEGIN_PREFIX, trace.getLevel()), message);
 
-        return trace;
+        return status;
     }
-    public void end(String message, Trace trace) {
-        log.info("[{}] {}{}", trace.getTraceId(), addSpace(END_PREFIX, trace.getLevel()), message);
+    public void end(TraceStatus status) {
+        Trace trace = status.getTrace();
+        log.info("[{}] {}{}", trace.getTraceId(), addSpace(END_PREFIX, trace.getLevel()), status.getMessage());
 
         releaseTrace(trace);
     }

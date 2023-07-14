@@ -1,11 +1,13 @@
-package site._60jong.advanced.kj.aop.log;
+package site._60jong.advanced.kj.aop.log.tracer;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+import site._60jong.advanced.kj.aop.log.Trace;
+import site._60jong.advanced.kj.aop.log.TraceStatus;
 
 @Slf4j
 @Component
-public class LogTracer {
+public class ThreadLocalLogTracer implements LogTracer {
 
     private static final String BEGIN_PREFIX = "-->";
     private static final String END_PREFIX = "<--";
@@ -13,6 +15,7 @@ public class LogTracer {
 
     private ThreadLocal<Trace> traceHolder = new ThreadLocal<>();
 
+    @Override
     public TraceStatus begin(String message) {
         Trace trace = syncTrace();
         TraceStatus status = new TraceStatus(trace, message);
@@ -21,6 +24,8 @@ public class LogTracer {
 
         return status;
     }
+
+    @Override
     public void end(TraceStatus status) {
         Trace trace = status.getTrace();
         log.info("[{}] {}{}", trace.getTraceId(), addSpace(END_PREFIX, trace.getLevel()), status.getMessage());

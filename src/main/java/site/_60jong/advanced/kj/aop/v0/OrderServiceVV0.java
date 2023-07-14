@@ -2,8 +2,8 @@ package site._60jong.advanced.kj.aop.v0;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import site._60jong.advanced.kj.aop.log.LogTracer;
-import site._60jong.advanced.kj.aop.log.Trace;
+import site._60jong.advanced.kj.aop.log.tracer.LogTracer;
+import site._60jong.advanced.kj.aop.log.tracer.ThreadLocalLogTracer;
 import site._60jong.advanced.kj.aop.log.TraceStatus;
 
 @RequiredArgsConstructor

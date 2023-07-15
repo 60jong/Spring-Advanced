@@ -1,4 +1,4 @@
-package site._60jong.advanced.practice.proxy.config.v1proxy.interface_proxy;
+package site._60jong.advanced.practice.proxy.config.v1_proxy.interface_proxy;
 
 import lombok.RequiredArgsConstructor;
 import site._60jong.advanced.practice.proxy.app.trace.TraceStatus;

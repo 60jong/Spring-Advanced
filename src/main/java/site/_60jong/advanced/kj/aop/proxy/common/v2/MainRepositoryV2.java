@@ -1,7 +1,5 @@
 package site._60jong.advanced.kj.aop.proxy.common.v2;
 
-import site._60jong.advanced.kj.aop.proxy.common.v1.MainRepositoryV1;
-
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 

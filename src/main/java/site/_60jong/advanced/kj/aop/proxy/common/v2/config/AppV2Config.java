@@ -1,16 +1,15 @@
 package site._60jong.advanced.kj.aop.proxy.common.v2.config;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import site._60jong.advanced.kj.aop.log.tracer.LogTracer;
 import site._60jong.advanced.kj.aop.proxy.common.v2.MainControllerV2;
 import site._60jong.advanced.kj.aop.proxy.common.v2.MainRepositoryV2;
 import site._60jong.advanced.kj.aop.proxy.common.v2.MainServiceV2;
-import site._60jong.advanced.kj.aop.proxy.common.v2.config.concreteproxy.MainControllerV2ConcreteProxy;
-import site._60jong.advanced.kj.aop.proxy.common.v2.config.concreteproxy.MainRepositoryV2ConcreteProxy;
-import site._60jong.advanced.kj.aop.proxy.common.v2.config.concreteproxy.MainServiceV2ConcreteProxy;
+import site._60jong.advanced.kj.aop.proxy.common.v2.concreteproxy.MainControllerV2ConcreteProxy;
+import site._60jong.advanced.kj.aop.proxy.common.v2.concreteproxy.MainRepositoryV2ConcreteProxy;
+import site._60jong.advanced.kj.aop.proxy.common.v2.concreteproxy.MainServiceV2ConcreteProxy;
 
-@Configuration
+//@Configuration
 public class AppV2Config {
 
     @Bean

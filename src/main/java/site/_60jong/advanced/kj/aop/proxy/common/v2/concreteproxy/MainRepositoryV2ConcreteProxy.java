@@ -1,4 +1,4 @@
-package site._60jong.advanced.kj.aop.proxy.common.v2.config.concreteproxy;
+package site._60jong.advanced.kj.aop.proxy.common.v2.concreteproxy;
 
 import lombok.RequiredArgsConstructor;
 import site._60jong.advanced.kj.aop.log.TraceStatus;

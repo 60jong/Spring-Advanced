@@ -8,7 +8,7 @@ import site._60jong.advanced.kj.aop.proxy.common.v1.interfaceproxy.MainControlle
 import site._60jong.advanced.kj.aop.proxy.common.v1.interfaceproxy.MainRepositoryV1InterfaceProxy;
 import site._60jong.advanced.kj.aop.proxy.common.v1.interfaceproxy.MainServiceV1InterfaceProxy;
 
-@Configuration
+//@Configuration
 public class AppV1Config {
     @Bean
     public MainControllerV1 mainControllerV1(LogTracer logTracer) {

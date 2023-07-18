@@ -1,12 +1,10 @@
-package site._60jong.advanced.kj.aop.v2;
+package site._60jong.advanced.kj.aop.general.v2;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import site._60jong.advanced.kj.aop.log.tracer.LogTracer;
 import site._60jong.advanced.kj.aop.log.tracer.strategy.Context;
-import site._60jong.advanced.kj.aop.log.tracer.templatemethod.AbstractTemplate;
 
 @Slf4j
 @RequiredArgsConstructor

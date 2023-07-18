@@ -33,6 +33,14 @@ public class ThreadLocalLogTracer implements LogTracer {
         releaseTrace(trace);
     }
 
+    @Override
+    public void exception(TraceStatus status, Exception e) {
+        Trace trace = status.getTrace();
+        log.info("[{}] {}{} {}", trace.getTraceId(), addSpace(EX_PREFIX, trace.getLevel()), status.getMessage(), e.getMessage());
+
+        releaseTrace(trace);
+    }
+
     private void releaseTrace(Trace trace) {
         if (trace.isFirstLevel()) {
             traceHolder.remove();

@@ -1,10 +1,8 @@
-package site._60jong.advanced.kj.aop.v2;
+package site._60jong.advanced.kj.aop.general.v2;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import site._60jong.advanced.kj.aop.log.tracer.LogTracer;
 import site._60jong.advanced.kj.aop.log.tracer.strategy.Context;
-import site._60jong.advanced.kj.aop.log.tracer.templatemethod.AbstractTemplate;
 
 @RequiredArgsConstructor
 @Service

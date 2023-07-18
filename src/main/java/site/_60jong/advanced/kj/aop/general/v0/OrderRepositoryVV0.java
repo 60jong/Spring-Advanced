@@ -1,4 +1,4 @@
-package site._60jong.advanced.kj.aop.v0;
+package site._60jong.advanced.kj.aop.general.v0;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;

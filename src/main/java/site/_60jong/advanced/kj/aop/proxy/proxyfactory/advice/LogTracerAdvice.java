@@ -1,34 +1,28 @@
-package site._60jong.advanced.kj.aop.proxy.common.v1.jdkdynamic.handler;
+package site._60jong.advanced.kj.aop.proxy.proxyfactory.advice;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.util.PatternMatchUtils;
+import org.aopalliance.intercept.MethodInterceptor;
+import org.aopalliance.intercept.MethodInvocation;
 import site._60jong.advanced.kj.aop.log.TraceStatus;
 import site._60jong.advanced.kj.aop.log.tracer.LogTracer;
 
-import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
 @RequiredArgsConstructor
-public class FilteredLogTracerHandler implements InvocationHandler {
+public class LogTracerAdvice implements MethodInterceptor {
 
-    private final Object target;
     private final LogTracer logTracer;
-    private final String[] patterns;
 
     @Override
-    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-
-        if (!PatternMatchUtils.simpleMatch(patterns, method.getName())) {
-            return method.invoke(target);
-        }
-
+    public Object invoke(MethodInvocation invocation) throws Throwable {
         TraceStatus status = null;
         try {
+            Method method = invocation.getMethod();
             String message = method.getDeclaringClass().getSimpleName() + "." + method.getName() + "()";
             status = logTracer.begin(message);
 
             // logic
-            Object result = method.invoke(target, args);
+            Object result = invocation.proceed();
 
             logTracer.end(status);
             return result;

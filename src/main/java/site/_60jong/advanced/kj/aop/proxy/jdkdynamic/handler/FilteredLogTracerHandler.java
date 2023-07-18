@@ -1,25 +1,25 @@
-package site._60jong.advanced.kj.aop.proxy.common.v2.cglib;
+package site._60jong.advanced.kj.aop.proxy.jdkdynamic.handler;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.cglib.proxy.MethodInterceptor;
-import org.springframework.cglib.proxy.MethodProxy;
 import org.springframework.util.PatternMatchUtils;
 import site._60jong.advanced.kj.aop.log.TraceStatus;
 import site._60jong.advanced.kj.aop.log.tracer.LogTracer;
 
+import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
 @RequiredArgsConstructor
-public class LogTracerMethodInterceptor implements MethodInterceptor {
+public class FilteredLogTracerHandler implements InvocationHandler {
 
     private final Object target;
     private final LogTracer logTracer;
     private final String[] patterns;
 
     @Override
-    public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+
         if (!PatternMatchUtils.simpleMatch(patterns, method.getName())) {
-            return methodProxy.invoke(target, objects);
+            return method.invoke(target);
         }
 
         TraceStatus status = null;
@@ -28,7 +28,7 @@ public class LogTracerMethodInterceptor implements MethodInterceptor {
             status = logTracer.begin(message);
 
             // logic
-            Object result = methodProxy.invoke(target, objects);
+            Object result = method.invoke(target, args);
 
             logTracer.end(status);
             return result;

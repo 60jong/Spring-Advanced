@@ -1,18 +1,17 @@
-package site._60jong.advanced.kj.aop.proxy.common.v1.config;
+package site._60jong.advanced.kj.aop.proxy.jdkdynamic;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import site._60jong.advanced.kj.aop.log.tracer.LogTracer;
 import site._60jong.advanced.kj.aop.proxy.common.v1.*;
-import site._60jong.advanced.kj.aop.proxy.common.v1.jdkdynamic.handler.FilteredLogTracerHandler;
-import site._60jong.advanced.kj.aop.proxy.common.v1.jdkdynamic.handler.LogTracerHandler;
+import site._60jong.advanced.kj.aop.proxy.jdkdynamic.handler.FilteredLogTracerHandler;
+import site._60jong.advanced.kj.aop.proxy.jdkdynamic.handler.LogTracerHandler;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 
 @RequiredArgsConstructor
-@Configuration
+//@Configuration
 public class JdkDynamicProxyConfig {
 
     private final LogTracer logTracer;

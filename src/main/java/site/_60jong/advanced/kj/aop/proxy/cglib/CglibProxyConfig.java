@@ -1,17 +1,16 @@
-package site._60jong.advanced.kj.aop.proxy.common.v2.config;
+package site._60jong.advanced.kj.aop.proxy.cglib;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import site._60jong.advanced.kj.aop.log.tracer.LogTracer;
 import site._60jong.advanced.kj.aop.proxy.common.v2.MainControllerV2;
 import site._60jong.advanced.kj.aop.proxy.common.v2.MainRepositoryV2;
 import site._60jong.advanced.kj.aop.proxy.common.v2.MainServiceV2;
-import site._60jong.advanced.kj.aop.proxy.common.v2.cglib.LogTracerMethodInterceptor;
+import site._60jong.advanced.kj.aop.proxy.cglib.methodinterceptor.LogTracerMethodInterceptor;
 
 @RequiredArgsConstructor
-@Configuration
+//@Configuration
 public class CglibProxyConfig {
 
     private final LogTracer logTracer;

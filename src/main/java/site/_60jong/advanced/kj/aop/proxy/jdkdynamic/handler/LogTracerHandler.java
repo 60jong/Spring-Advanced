@@ -1,4 +1,4 @@
-package site._60jong.advanced.kj.aop.proxy.common.v1.jdkdynamic.handler;
+package site._60jong.advanced.kj.aop.proxy.jdkdynamic.handler;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

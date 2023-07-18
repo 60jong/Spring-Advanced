@@ -3,9 +3,9 @@ package site._60jong.advanced;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
-import site._60jong.advanced.practice.proxy.config.v1_proxy.ProxyConcreteConfig;
+import site._60jong.advanced.practice.proxy.config.v6_aspect.AopConfig;
 
-@Import(ProxyConcreteConfig.class)
+@Import(AopConfig.class)
 @SpringBootApplication(scanBasePackages = "site._60jong.advanced.practice.proxy.app")
 public class AdvancedApplication {
 

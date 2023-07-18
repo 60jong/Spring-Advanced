@@ -8,7 +8,6 @@ import site._60jong.advanced.practice.proxy.app.trace.logtrace.LogTrace;
 
 @Slf4j
 @RequiredArgsConstructor
-@Component
 public class TraceTemplate {
 
     private final LogTrace trace;

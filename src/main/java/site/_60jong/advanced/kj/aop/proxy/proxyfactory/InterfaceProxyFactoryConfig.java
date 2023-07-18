@@ -13,7 +13,7 @@ import site._60jong.advanced.kj.aop.proxy.proxyfactory.advice.LogTracerAdvice;
 
 @Slf4j
 @RequiredArgsConstructor
-@Configuration
+//@Configuration
 public class InterfaceProxyFactoryConfig {
 
     private final LogTracer logTracer;
